@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medal Table Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Center the submit button */
+        }
+
+        input[type="submit"]:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medal Table Input</h1>
+    <form action="output.html" method="post">
+        <!-- Fighter 1 Name -->
+        <label for="fighter1Name">Fighter 1 Name:</label>
+        <input type="text" id="fighter1Name" list="fighterNames" required >
+
+        <!-- Fighter 1 Country Dropdown -->
+        <label for="fighter1Country">Fighter 1 Country:</label>
+        <input type="text" id="fighter1Country" list="countryList" required autocomplete="off">
+        <datalist id="countryList">
+            <!-- JavaScript will populate this with all available countries -->
+        </datalist>
+
+        <!-- Fighter 2 Name -->
+        <label for="fighter2Name">Fighter 2 Name:</label>
+        <input type="text" id="fighter2Name" list="fighterNames" required >
+
+        <!-- Fighter 2 Country Dropdown -->
+        <label for="fighter2Country">Fighter 2 Country:</label>
+        <input type="text" id="fighter2Country" list="countryList" required autocomplete="off">
+
+        <!-- Fighter 3 Name -->
+        <label for="fighter3Name">Fighter 3 Name:</label>
+        <input type="text" id="fighter3Name" list="fighterNames" required >
+
+        <!-- Fighter 3 Country Dropdown -->
+        <label for="fighter3Country">Fighter 3 Country:</label>
+        <input type="text" id="fighter3Country" list="countryList" required autocomplete="off">
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // JavaScript code to populate the country dropdown
+        const countryList = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
+            "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
+            "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+            "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso",
+            "Burundi", "Côte d'Ivoire", "Cabo Verde", "Cambodia", "Cameroon", "Canada",
+            "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo",
+            "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo",
+            "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador",
+            "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland",
+            "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea",
+            "Guinea-Bissau", "Guyana", "Haiti", "Holy See", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran",
+            "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+            "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania",
+            "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania",
+            "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique",
+            "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger",
+            "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine State", "Panama",
+            "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda",
+            "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+            "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands",
+            "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden",
+            "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago",
+            "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America",
+            "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+        ];
+
+        const countryDropdown = document.getElementById("countryList");
+
+        // Function to populate the country dropdown
+        function populateCountryDropdown() {
+            countryList.forEach((country) => {
+                const option = document.createElement("option");
+                option.value = country;
+                countryDropdown.appendChild(option);
+            });
+        }
+
+        // Ensure the DOM is fully loaded before populating the dropdown
+        document.addEventListener("DOMContentLoaded", populateCountryDropdown);
+    </script>
+</body>
+</html>

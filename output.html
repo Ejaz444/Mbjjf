@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <title>Medal Table Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+
+        .fighter-info {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        img {
+            width: 100px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fighter-info" id="fighter2Info">
+            <p id="fighter2Name"></p>
+            <p id="fighter2Country"></p>
+            <img id="fighter2CountryFlag" src="" alt="Flag">
+            <div class="rank">2</div>
+        </div>
+        <div class="fighter-info" id="fighter1Info">
+            <p id="fighter1Name"></p>
+            <p id="fighter1Country"></p>
+            <img id="fighter1CountryFlag" src="" alt="Flag">
+            <div class="rank">1</div>
+        </div>
+        <div class="fighter-info" id="fighter3Info">
+            <p id="fighter3Name"></p>
+            <p id="fighter3Country"></p>
+            <img id="fighter3CountryFlag" src="" alt="Flag">
+            <div class="rank">3</div>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve form data from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('fighter1Name').textContent = urlParams.get('fighter1Name');
+        document.getElementById('fighter2Name').textContent = urlParams.get('fighter2Name');
+        document.getElementById('fighter3Name').textContent = urlParams.get('fighter3Name');
+        document.getElementById('fighter1Country').textContent = urlParams.get('fighter1Country');
+        document.getElementById('fighter2Country').textContent = urlParams.get('fighter2Country');
+        document.getElementById('fighter3Country').textContent = urlParams.get('fighter3Country');
+
+        // Define the folder where flag images are located
+        const imageFolder = 'images/';
+
+        // Map country names to flag image filenames
+        const countryFlags = {
+            "Country1": "flag1.png",
+            "Country2": "flag2.png",
+            "Country3": "flag3.png",
+            // Add more countries as needed
+        };
+
+        // Display country flags based on user input
+        const fighter1Country = urlParams.get('fighter1Country');
+        const fighter2Country = urlParams.get('fighter2Country');
+        const fighter3Country = urlParams.get('fighter3Country');
+
+        if (fighter1Country in countryFlags) {
+            const flagElement1 = document.getElementById('fighter1CountryFlag');
+            flagElement1.src = imageFolder + countryFlags[fighter1Country];
+        }
+
+        if (fighter2Country in countryFlags) {
+            const flagElement2 = document.getElementById('fighter2CountryFlag');
+            flagElement2.src = imageFolder + countryFlags[fighter2Country];
+        }
+
+        if (fighter3Country in countryFlags) {
+            const flagElement3 = document.getElementById('fighter3CountryFlag');
+            flagElement3.src = imageFolder + countryFlags[fighter3Country];
+        }
+    </script>
+</body>
+</html>
